@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><!-- saved from url=(0014)about:internet --><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="style.css" type="text/css" media="screen"><link rel="stylesheet" href="print.css" type="text/css" media="print"><link rel="stylesheet" href="override.css" type="text/css"><meta name="keywords" content="JavaScript,globalClassifier.JavaScript,AttributeColumnCache,CSVParser,ClassRegistry,EditorManager,ErrorManager,ExternalSessionStateInterface,JSON_EXTENSIONS,JS_this,LocaleManager,ProgressIndicator,ProjectionManager,QKeyManager,QName_Class,SessionManager,StageUtils,StatisticsCache,TASK_PRIORITY_HIGH,TASK_PRIORITY_IMMEDIATE,TASK_PRIORITY_LOW,TASK_PRIORITY_NORMAL,URLRequestUtils,WeavePath,WeavePathData,WeavePathUI,XML_Class,available,globalHashMap,javaScriptInitialized,objectID,topLevelApplication,traceLog,callExternalWeaveReady,debugId,debugLookup,debugTrace,exec,extendJson,externalError,externalTrace,getObject,getPath,initializeJavaScript,lang,registerJavaScriptInterface,registerMethod,weaveTrace"><title>JavaScript</title></head><body><script language="javascript" type="text/javascript" src="asdoc.js"></script><script language="javascript" type="text/javascript" src="help.js"></script><script language="javascript" type="text/javascript" src="cookies.js"></script><script language="javascript" type="text/javascript"><!--
+				asdocTitle = 'JavaScript - Weave AS3 documentation';
+				var baseRef = '';
+				window.onload = configPage;
+			--></script>
+<script type="text/javascript">
+			scrollToNameAnchor();
+		</script><table class="titleTable" cellpadding="0" cellspacing="0" id="titleTable" style="display:none"><tr><td class="titleTableTitle" align="left">Weave AS3 documentation</td><td class="titleTableTopNav" align="right"><a href="package-summary.html" onclick="loadClassListFrame('all-classes.html')">All Packages</a>&nbsp;|&nbsp;<a href="class-summary.html" onclick="loadClassListFrame('all-classes.html')">All Classes</a>&nbsp;|&nbsp;<a href="all-index-A.html" onclick="loadClassListFrame('index-list.html')">Index</a>&nbsp;|&nbsp;<a id="framesLink1" href="index.html?JavaScript.html&amp;">Frames</a><a id="noFramesLink1" style="display:none" href="" onclick="parent.location=document.location"> No Frames </a></td><td class="titleTableLogo" align="right" rowspan="3"><img src="images/logo.jpg" class="logoImage" alt=" Adobe Logo " title=" Adobe Logo "></td></tr><tr class="titleTableRow2"><td class="titleTableSubTitle" id="subTitle" align="left">JavaScript</td><td class="titleTableSubNav" id="subNav" align="right"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#constantSummary">Constants</a></td></tr><tr class="titleTableRow3"><td colspan="3">&nbsp;</td></tr></table><script language="javascript" type="text/javascript" xml:space="preserve">
+				<!--
+				
+					if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("JavaScript"); titleBar_setSubNav(true,true,false,false,false,false,false,false,true,false,false	,false,false,false,false,false);}	
+				-->
+			</script><div xmlns:fn="http://www.w3.org/2005/xpath-functions" class="MainContent"><table class="classHeaderTable" cellpadding="0" cellspacing="0"><tr><td class="classHeaderTableLabel">Package</td><td><a href="package-detail.html" onclick="javascript:loadClassListFrame('class-list.html')">Top Level</a></td></tr><tr><td class="classHeaderTableLabel">Class</td><td class="classSignature">public  class  JavaScript</td></tr><tr><td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">JavaScript  <img src="images/inherit-arrow.gif" title="Inheritance" alt="Inheritance" class="inheritArrow"> Object</td></tr></table><p></p><p></p><p></p>
+	 An alternative to flash.external.ExternalInterface with workarounds for its limitations.
+	 Requires Flash Player 11 or later to get the full benefit (uses native JSON support),
+	 but has backwards compatibility to Flash Player 10, or possibly earlier versions (untested).
+	 
+	 If there is a syntax error, JavaScript.exec() will throw the Error while ExternalInterface.call() would return null.
+	 
+	 When parameters are passed to ExternalInterface.call() it attempts to stringify the parameters
+	 to JavaScript object literals, but it does not quote keys and it does not escape backslashes
+	 in String values. For example, if you give <code>{"Content-Type": "foo\\"}</code> as a parameter,
+	 ExternalInterface generates the following invalid code: <code>{Content-Type: "foo\"}</code>.
+	 The same problem occurs when returning an Object from an ActionScript function that was invoked
+	 from JavaScript. This class works around the limitation by using JSON.stringify() and JSON.parse()
+	 and escaping backslashes in resulting JSON strings. The values <code>NaN, Infinity, -Infinity</code>
+	 are preserved, as well as function pointers. When a JavaScript function is called from ActionScript,
+	 it uses a property called "this" as the <code>this</code> argument for the function.
+	 
+	 This class also provides an objectID accessor which is more reliable than ExternalInterface.objectID,
+	 which may be null if the Flash object was created using jQuery.flash() even if the Flash object
+	 has an "id" property in JavaScript.
+	 
+	 <p></p><p><span class="classHeaderTableLabel">See also</span></p><div class="seeAlso">flash.external.ExternalInterface</div><br/><hr></div><a name="propertySummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Properties</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableProperty"><tr><th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#JS_this" class="signatureLink">JS_this</a> : String<div class="summaryTableDescription">[static] [read-only] 
+		 A JavaScript expression which gets a pointer to this Flash object.</div></td><td class="summaryTableOwnerCol">JavaScript</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#objectID" class="signatureLink">objectID</a> : String<div class="summaryTableDescription">[static] [read-only] 
+		 The "id" property of this Flash object.</div></td><td class="summaryTableOwnerCol">JavaScript</td></tr></table></div><a name="methodSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Methods </div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableMethod"><tr><th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#exec()" class="signatureLink">exec</a>(... paramsAndCode):*</div><div class="summaryTableDescription">[static] 
+		 This will execute JavaScript code inside a function(){} wrapper.</div></td><td class="summaryTableOwnerCol">JavaScript</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#extendJson()" class="signatureLink">extendJson</a>(replacer:Function, reviver:Function, needsReviving:Function):void</div><div class="summaryTableDescription">[static] 
+		 Extends JavaScript JSON communication to support new types of objects passed between ActionScript and JavaScript.</div></td><td class="summaryTableOwnerCol">JavaScript</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#registerMethod()" class="signatureLink">registerMethod</a>(methodName:String, method:Function):void</div><div class="summaryTableDescription">[static] 
+		 Exposes a method to JavaScript.</div></td><td class="summaryTableOwnerCol">JavaScript</td></tr></table></div><a name="constantSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Constants</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableConstant"><tr><th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#available" class="signatureLink">available</a> : Boolean<div class="summaryTableDescription">[static] 
+		 Alias for ExternalInterface.available
+		 </div></td><td class="summaryTableOwnerCol">JavaScript</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#JSON_EXTENSIONS" class="signatureLink">JSON_EXTENSIONS</a> : String = _jsonExtensions<div class="summaryTableDescription">[static] 
+		 The name of a JavaScript property of this flash instance which contains an Array of JSON replacer/reviver extensions.</div></td><td class="summaryTableOwnerCol">JavaScript</td></tr></table></div><script language="javascript" type="text/javascript"><!--
+										showHideInherited();
+										--></script><div class="MainContent"><div class="detailSectionHeader">Property Detail</div><a name="propertyDetail"></a><a name="JS_this"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">JS_this</td><td class="detailHeaderType">property</td></tr></table><div class="detailBody"><code>JS_this:String</code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 A JavaScript expression which gets a pointer to this Flash object.
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get JS_this():String</code><br/></div><a name="propertyDetail"></a><a name="objectID"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">objectID</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>objectID:String</code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 The "id" property of this Flash object.
+		 Use this as a reliable alternative to ExternalInterface.objectID, which may be null in some cases even if the Flash object has an "id" property.
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get objectID():String</code><br/></div><a name="methodDetail"></a><div class="detailSectionHeader">Method Detail</div><a name="exec()"></a><a name="exec(restParam)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">exec</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td></tr></table><div class="detailBody"><code> public static function exec(... paramsAndCode):*</code><p></p><p></p><p>
+		 This will execute JavaScript code inside a function(){} wrapper.
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code>... <span class="label">paramsAndCode</span></code> &mdash; A list of lines of code, optionally including an
+		     Object containing named parameters to be passed from ActionScript to JavaScript.
+		 
+		     Inside the code, you can use the "this" variable to access this flash object.
+		     If instead you prefer to use a variable name other than "this", supply an Object
+		     like <code>{"this": "yourDesiredVariableName"}</code>.
+		 
+		     By default, a JavaScript Error will be marshalled to an ActionScript Error.
+		     To disable this behavior, supply an Object like <code>{"catch": false}</code>.
+		     You can also provide an ActionScript function to handle errors: <code>{"catch": myErrorHandler}</code>.
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>*</code> &mdash; The result of executing the JavaScript code.
+		 
+		 </td></tr></table><br/><span class="label"> Example </span><br/><div class="detailBody">Example 1
+		 <div class="listing" version="3.0"><pre>
+             var sum = JavaScript.exec({x: 2, y: 3}, "return x + y");
+             trace("sum:", sum);
+         </pre></div>
+		 
+		 </div><div class="detailBody">Example 2
+		 <div class="listing" version="3.0"><pre>
+             trace( JavaScript.exec("return this.id;") );
+         </pre></div>
+		 
+		 </div><div class="detailBody">Example 3
+		 <div class="listing" version="3.0"><pre>
+             JavaScript.registerMethod("testme", trace);
+             JavaScript.exec({"this": "self"}, "self.testme(self.id);");
+         </pre></div>
+		 </div></div><a name="extendJson()"></a><a name="extendJson(Function,Function,Function)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">extendJson</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public static function extendJson(replacer:Function, reviver:Function, needsReviving:Function):void</code><p></p><p></p><p>
+		 Extends JavaScript JSON communication to support new types of objects passed between ActionScript and JavaScript.
+		 This only extends the ActionScript side. Corresponding JavaScript code must written if specialized JavaScript
+		 Objects are to be supported.
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">replacer</span>:Function</code> &mdash; function(key:String, value::; Replaces an Object with a JSON-serializable representation. 
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">reviver</span>:Function</code> &mdash; function(key:String, value::; Revives an Object from its JSON representation.
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">needsReviving</span>:Function</code> &mdash; function(key:String, value::Boolean ; Determines if a value requires reviving in JavaScript once replaced in ActionScript.
+		 </td></tr></table></p><p><span class="label">See also</span></p><div class="seeAlso"><a href="JavaScript.html#jsonAvailable" target="">jsonAvailable</a></div><br/><span class="label"> Example </span><br/><div class="detailBody">Example JavaScript code (func1 and func2 should be function definitions)
+		 <div class="listing" version="3.0"><pre>
+         JavaScript.exec(
+             {"JSON_EXTENSIONS": JavaScript.JSON_EXTENSIONS},
+             'this[JSON_EXTENSIONS].push({"replacer": func1, "reviver": func2});'
+         );
+         </pre></div>
+		 </div></div><a name="registerMethod()"></a><a name="registerMethod(String,Function)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">registerMethod</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public static function registerMethod(methodName:String, method:Function):void</code><p></p><p></p><p>
+		 Exposes a method to JavaScript.
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">methodName</span>:String</code> &mdash; The name to be used in JavaScript.
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">method</span>:Function</code> &mdash; The method.
+		 </td></tr></table></p></div><div class="detailSectionHeader">Constant Detail</div><a name="constantDetail"></a><a name="available"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">available</td><td class="detailHeaderType">Constant</td></tr></table><div class="detailBody"><code>public static const available:Boolean</code><p></p><p></p><p>
+		 Alias for ExternalInterface.available
+		 </p><p><span class="label">See also</span></p><div class="seeAlso">flash.external.ExternalInterface.available</div></div><a name="constantDetail"></a><a name="JSON_EXTENSIONS"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">JSON_EXTENSIONS</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const JSON_EXTENSIONS:String = _jsonExtensions</code><p></p><p></p><p>
+		 The name of a JavaScript property of this flash instance which contains an Array of JSON replacer/reviver extensions.
+		 Each object in the Array can contain "replacer" and "reviver" properties containing the extension functions.
+		 </p></div><br/><br/><hr><br/><p></p><center class="copyright"><footer></footer><br/>Thu Oct 15 2015, 12:09 PM -04:00  </center></div></body></html><!--<br/>Thu Oct 15 2015, 12:09 PM -04:00  -->
